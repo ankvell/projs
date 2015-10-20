@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="dropbox">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Drag &amp; Drop</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.0-rc.1/angular.js" data-semver="1.4.0-rc.1"></script>
+    <script src="scripts/angular-draganddrop.min.js"></script>
+    <script src="scripts/app.js"></script>
+  </head>
+  <body ng-controller="MainCtrl">
+    <div class="container">
+      <div class="main-list">
+      <img src="http://static1.squarespace.com/static/556e0f2fe4b0a1f47b3df7e8/t/55a498a2e4b0d9bcb93be2f8/1436850339885/" alt="logo">
+        <ul>
+          <li ng-repeat="beerSection in beers">
+            <span>{{beerSection.country}}</span>
+            <ul>
+              <li
+                ng-repeat="mark in beerSection.brands | notInBasket"
+                ui-draggable="true"
+                drag="mark"
+                on-drop-success="dropSuccessHandler($event,$index,beerSection.brands)">
+                {{mark.brand}}
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    <footer class="footer">
+      <ul class="basket" ui-on-Drop="onDrop($event,$data,cart)">
+        <li ng-repeat="beer in cart track by $index">
+          {{beer.brand}}
+          <span ng-click="remove(cart, $index)">X</span>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

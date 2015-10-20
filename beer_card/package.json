@@ -1,0 +1,23 @@
+{
+  "name": "drag",
+  "version": "1.0.1",
+  "description": "test_task",
+  "main": "index.js",
+  "scripts": {
+    "build": "node-sass styles/main.scss styles/main.css",
+    "watch": "npm run build -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankvell/projs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ankvell/projs/issues"
+  },
+  "homepage": "https://github.com/ankvell/projs#readme",
+  "devDependencies": {
+    "node-sass": "^3.3.3"
+  }
+}

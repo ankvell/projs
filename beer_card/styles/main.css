@@ -1,0 +1,67 @@
+body {
+  position: relative;
+  color: #fff;
+  background-image: url(http://www.anchorbrewing.com/assets/home/images/04-wheel.jpg); }
+
+.main-list {
+  background-image: url(http://c2aaa552746c640f5bb9-f620708e09ca3ca8125d7f727efec57d.r45.cf2.rackcdn.com/bg-sb-lg.jpg);
+  background-repeat: repeat-x;
+  width: 280px;
+  height: 100vh;
+  background-size: cover; }
+  .main-list ul {
+    color: #ece6db;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto; }
+    .main-list ul span {
+      display: block;
+      width: 85%;
+      margin: 0 auto;
+      text-align: center;
+      border-bottom: 1px dotted #403939;
+      font-size: 18px;
+      font-weight: bold;
+      padding-top: 8px; }
+      .main-list ul span:hover {
+        text-shadow: 1px 0 1px #A98E95; }
+    .main-list ul ul li {
+      text-align: center;
+      font-size: 13px;
+      transition: all 0.4s ease; }
+      .main-list ul ul li:hover {
+        font-size: 18px;
+        color: #96A122; }
+  .main-list img {
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+    height: auto;
+    padding: 15px; }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0; }
+  footer .basket {
+    width: 220px;
+    height: 290px;
+    overflow: auto;
+    padding-top: 30px;
+    color: #96A122;
+    display: block;
+    list-style: none;
+    background-image: url(https://hopheadsaid.files.wordpress.com/2011/03/shaker-01-011.png);
+    background-size: 200px; }
+    footer .basket span {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      font-size: 16px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+      border: 1px solid;
+      border-radius: 5px;
+      background-color: #333; }
