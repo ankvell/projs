@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>test-before-submit</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.0-rc.1/angular.js" data-semver="1.4.0-rc.1"></script>
+    <script src="scripts/app.js"></script>
+  </head>
+  <body ng-app="submit" ng-controller="MainCtrl">
+    <form action="">
+      <div class="form-group">
+        <h4>Test before submit <span></span></h4>
+
+        <label>
+          <input ng-model="textValue"
+          ng-disabled="isInProcess"
+          class="form-control"
+          type="text" name="text"
+          ng-change="onTextChange()"
+          placeholder="Please enter your message" />
+        </label>
+
+        <a ng-if="!canSubmit" class="btn" ng-class="isInProcess ? 'btn-danger' : 'btn-warning'"
+          ng-click="onClick()">
+          Test
+          <span class="glyphicon" ng-class=" !isInProcess ? 'glyphicon-pencil' : 'glyphicon-refresh rotating'"></span>
+        </a>
+
+        <button ng-if="canSubmit" class="btn btn-success">
+        Submit
+        <span class="glyphicon glyphicon-ok"></span>
+        </button>
+      </div>
+
+      <div ng-if="!canSubmit" class="message">{{errorMessage}}</div>
+      <div ng-if="canSubmit" class="message success">{{successMessage}}</div>
+    </form>
+  </body>
+</html>
