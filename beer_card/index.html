@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles/main.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <!-- AngularJS -->
     <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.0-rc.1/angular.js" data-semver="1.4.0-rc.1"></script>
     <script src="scripts/angular-draganddrop.min.js"></script>
     <script src="scripts/app.js"></script>
@@ -25,8 +26,7 @@
               <li
                 ng-repeat="mark in beerSection.brands | notInBasket"
                 ui-draggable="true"
-                drag="mark"
-                on-drop-success="dropSuccessHandler($event,$index,beerSection.brands)">
+                drag="mark">
                 {{mark.brand}}
               </li>
             </ul>
