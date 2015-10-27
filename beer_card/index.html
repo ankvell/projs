@@ -26,13 +26,13 @@
               <li
                 ng-repeat="mark in beerSection.brands | notInBasket"
                 ui-draggable="true"
-                drag="mark">
+                drag="mark"
+                on-drop-success="dropSuccessHandler($event,$index,beerSection.brands)">
                 {{mark.brand}}
               </li>
             </ul>
           </li>
         </ul>
-
       </div>
     </div>
     <footer class="footer">
