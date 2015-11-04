@@ -1,4 +1,4 @@
-//  Set a rem font size with pixel fallback
+//  Set a rem FONT SIZE with pixel fallback
 @function calculateRem($size) {
   $remSize: $size / 16px;
   @return $remSize * 1rem;
@@ -9,32 +9,46 @@
   font-size: calculateRem($size);
 }
 
-// Usage
+// usage
 p {
   @include font-size(14px)
 }
 
 
-// Breakpoints
+
+// CSS3-PREFIX
+ @mixin css3-prefix($property, $value) {
+    -webkit-#{$property}: #{$value};
+    -khtml-#{$property}: #{$value};
+    -moz-#{$property}: #{$value};
+    -ms-#{$property}: #{$value};
+    -o-#{$property}: #{$value};
+    #{$property}: #{$value}
+}
+
+// usage
+@include css3-prefix('property', value);
+
+
+
+// BREAKPOINTS
 @mixin bp-large {
   @media only screen and (max-width: 60em) {
     @content;
   }
 }
-
 @mixin bp-medium {
   @media only screen and (max-width: 40em) {
     @content;
   }
 }
-
 @mixin bp-small {
   @media only screen and (max-width: 30em) {
     @content;
   }
 }
 
-// Usage
+// usage
 .sidebar {
   width: 60%;
   float: left;
@@ -46,7 +60,9 @@ p {
   }
 }
 
-// Animations and keyframes
+
+
+// ANIMATIONS & KEYFRAMES
 @mixin keyframes($animation-name) {
   @-webkit-keyframes $animation-name {
     @content;
@@ -66,14 +82,15 @@ p {
 }
 
 @mixin animation($str) {
-  -webkit-animation: #{$str};
-  -moz-animation: #{$str};
-  -ms-animation: #{$str};
-  -o-animation: #{$str};
-  animation: #{$str};
+   @include css3-prefix('animation', $str);
 }
 
-// Usage
+@mixin rgba($hexcolor, $opacity) {
+    background-color: $hexcolor;
+    background-color: rgba($hexcolor, $opacity);
+}
+
+// usage
 @include keyframes(slide-down) {
   0% { opacity: 1; }
   90% { opacity: 0; }
@@ -82,12 +99,13 @@ p {
 .element {
   width: 100px;
   height: 100px;
-  background: black;
+  background: #000;
   @include animation('slide-down 5s 3');
 }
 
 
-// Transitions
+
+// TRANSITION
 @mixin transition($args...) {
   -webkit-transition: $args;
   -moz-transition: $args;
@@ -96,30 +114,30 @@ p {
   transition: $args;
 }
 
-// Usage
+// usage
 a {
-  color: gray;
+  color: #ddd;
   @include transition(color .3s ease);
   &:hover {
-    color: black;
+    color: #000;
   }
 }
 
 
-// Cross browser opacity
+// CROSS BROWSER OPACITY
 @mixin opacity($opacity) {
   opacity: $opacity;
   $opacity-ie: $opacity * 100;
   filter: alpha(opacity=$opacity-ie); //IE8
 }
 
-// Usage
+// usage
 .faded-text {
-  @include opacity(0.8);
+  @include opacity(.8);
 }
 
 
-// Clearfix
+// CLEARFIX
 %clearfix {
   *zoom: 1;
   &:before, &:after {
@@ -131,7 +149,20 @@ a {
   }
 }
 
-// Usage
+// usage
 .container-with-floated-children {
   @extend %clearfix;
+}
+
+// OR
+@mixin cfx() {
+    &:after {content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}
+}
+
+
+
+// COLUMN
+@mixin columns($count: 2, $gap: 0) {
+    @include css3-prefix('column-count', $count);
+    @include css3-prefix('column-gap', $gap);
 }
