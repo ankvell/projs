@@ -124,6 +124,7 @@ a {
 }
 
 
+
 // CROSS BROWSER OPACITY
 @mixin opacity($opacity) {
   opacity: $opacity;
@@ -135,6 +136,7 @@ a {
 .faded-text {
   @include opacity(.8);
 }
+
 
 
 // CLEARFIX
@@ -165,4 +167,12 @@ a {
 @mixin columns($count: 2, $gap: 0) {
     @include css3-prefix('column-count', $count);
     @include css3-prefix('column-gap', $gap);
+}
+
+
+
+// TRANSITION
+@mixin transition($property: all, $duration: .5s, $easing: ease) {
+    $transitions: ($property $duration $easing);
+    @include css3-prefix('transition', $transitions);
 }
