@@ -14,10 +14,10 @@
             $scope.isInProcess = true;
             queryService.testQuery($scope.textValue)
                 .then(onTestSuccess, onTestFailure);
-        }
+        };
         $scope.onTextChange = function() {
             $scope.canSubmit = false;
-        }
+        };
         function onTestSuccess(response) {
             $scope.canSubmit = true;
             $scope.isInProcess = false;
@@ -50,7 +50,7 @@
                     }, 3000);
                 });
             }
-        }
-    })
+        };
+    });
 
 })();

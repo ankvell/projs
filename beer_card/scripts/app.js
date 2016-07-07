@@ -26,7 +26,7 @@
         return beers.filter(function(beer) {
             return !beer.inBasket;
         });
-    };
+    }
     app.filter('notInBasket', function() {
         return filterData;
     });
@@ -135,11 +135,11 @@
                     });
                 });
             }
-        }
+        };
     });
 
     app.service('cartService', function($http, $q) {
-        var products = []
+        var products = [];
         return {
             getProducts: function() {
                 return products;
@@ -177,6 +177,6 @@
                     });
                 });
             }
-        }
+        };
     });
 })();

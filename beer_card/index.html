@@ -36,7 +36,7 @@
       </div>
     </div>
     <footer class="footer">
-      <ul class="basket" ui-on-Drop="onDrop($event,$data,cart)">
+      <ul class="basket" ui-on-drop="onDrop($event,$data,cart)">
         <li ng-repeat="beer in cart track by $index">
           {{beer.brand}}
           <span ng-click="remove(cart, $index)">X</span>
