@@ -1,3 +1,8 @@
+/*!
+ * gulp
+ * $ npm install gulp-ruby-sass gulp-autoprefixer gulp-jshint gulp-strip-debug gulp-uglify gulp-rename gulp-replace gulp-concat gulp-notify gulp-minify-css gulp-plumber gulp-util gulp-base64 gulp-imagemin browser-sync --save-dev
+ */
+
 // Load plugins
 var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
